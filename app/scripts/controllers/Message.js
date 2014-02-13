@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('happyorsadApp')
-  .controller('MessageCtrl', function ($scope, $http) {
-    $http.get('/api/messages').success(function(messages) {
-      $scope.messages = messages;
+  .controller('MessageCtrl', function ($scope, $http, $location) {
+    $http.get('/api/messages').success(function(data) {
+      $scope.messages = data.messages;
     });
 
     $scope.userMessage = {text: 'Your input here..'};
-
-    $scope.submit = function() {
-	    $http.post('/api/messages', $scope.userMessage.text).success(function(messages) {
-
-	    });
-	}
+    $scope.submitPost = function () {
+	    $http.post('/api/messages', $scope.userMessage).
+	      success(function(data) {
+	        window.location.reload(false);
+	      });
+	  };
   });

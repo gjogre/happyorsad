@@ -7,9 +7,10 @@ var express = require('express'),
 app.use(express.bodyParser());
 
 app.get('/api/messages', routes.messages);
+app.post('/api/messages', routes.addPost);
 
 app.use(function (req, res) {
     res.json({'ok': false, 'status': '404'});
 });
 
-module.exports = app;
+module.exports = app
