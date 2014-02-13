@@ -1,0 +1,14 @@
+<div ng-controller='MessageCtrl'>
+<br><br>
+<input ng-model='userMessage.text'>
+<button class='button' ng-click='submit()'>Submit</button>
+<br><br>
+	<div>
+
+	{{userMessage.text}}
+
+		<div ng-repeat='message in messages'>
+			{{message}}
+		</div>
+	</div>
+</div>
